@@ -1,6 +1,7 @@
 import {
   AllSubstringsIndexStrategy,
   Search,
+  SimpleTokenizer,
   UnorderedSearchIndex
 } from 'js-search'
 
@@ -23,7 +24,7 @@ export default function createFilterOptions ({
   }
 
   if (tokenizer) {
-    search.tokenizer = tokenizer
+    search.tokenizer = tokenizer || new SimpleTokenizer()
   }
 
   if (indexes) {
